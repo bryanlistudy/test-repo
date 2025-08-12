@@ -2,7 +2,7 @@
   const WORD_LENGTH = 5;
   const NUM_ROWS = 6;
 
-  const WORDS = [
+  const SMALL_WORDS = [
     // Short list to keep the demo lightweight
     "about","other","which","their","there","first","would","these","click","price",
     "state","email","world","music","after","video","where","books","links","years",
@@ -23,6 +23,12 @@
     "final","adult","thing","cheap","third","gifts","cover","often","watch","deals",
     "words","linux","james","heart","error","clear","makes","india","taken","known"
   ];
+
+  const WORDS = (Array.isArray(window.LARGE_WORDS) && window.LARGE_WORDS.length > 0)
+    ? window.LARGE_WORDS
+        .filter((w) => typeof w === "string" && w.length === 5 && /^[a-z]+$/.test(w))
+        .map((w) => w.toLowerCase())
+    : SMALL_WORDS;
 
   const boardEl = document.getElementById("board");
   const keyboardEl = document.getElementById("keyboard");
