@@ -1,0 +1,124 @@
+:root {
+  --tile-size: 56px;
+  --tile-gap: 8px;
+  --color-correct: #6aaa64;
+  --color-present: #c9b458;
+  --color-absent: #787c7e;
+  --color-border: #d3d6da;
+  --color-text: #111827;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
+  color: var(--color-text);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+}
+
+header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+  margin: 12px auto;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-size: 1.25rem;
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  justify-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(6, var(--tile-size));
+  gap: var(--tile-gap);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, var(--tile-size));
+  gap: var(--tile-gap);
+}
+
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border: 2px solid var(--color-border);
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.tile.filled {
+  border-color: #9ca3af;
+}
+
+.tile.reveal.correct { background: var(--color-correct); color: white; border-color: var(--color-correct); }
+.tile.reveal.present { background: var(--color-present); color: white; border-color: var(--color-present); }
+.tile.reveal.absent  { background: var(--color-absent);  color: white; border-color: var(--color-absent); }
+
+#keyboard {
+  display: grid;
+  gap: 8px;
+}
+
+.kb-row {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+
+.kb-row.row-2 { grid-template-columns: 0.5fr repeat(9, 1fr) 0.5fr; }
+.kb-row.row-3 { grid-template-columns: 1.2fr repeat(7, 1fr) 1.2fr; }
+
+.key {
+  padding: 12px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key.correct { background: var(--color-correct); color: white; }
+.key.present { background: var(--color-present); color: white; }
+.key.absent  { background: var(--color-absent);  color: white; }
+
+#message {
+  min-height: 24px;
+  color: #374151;
+}
+
+#restart {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  background: #1f2937;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 420px) {
+  :root { --tile-size: 48px; }
+}
+
+
