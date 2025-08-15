@@ -1,0 +1,19 @@
+{
+  "name": "hero-power-calculator",
+  "version": "1.0.0",
+  "description": "A fun TypeScript program to calculate hero power levels",
+  "main": "dist/hero-power-calculator.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/hero-power-calculator.js",
+    "dev": "ts-node hero-power-calculator.ts"
+  },
+  "keywords": ["hero", "power", "calculator", "typescript", "fun"],
+  "author": "Hero Fan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.9.0",
+    "ts-node": "^10.9.0"
+  }
+}
